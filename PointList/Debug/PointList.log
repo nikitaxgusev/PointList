@@ -1,0 +1,4 @@
+﻿  ptlist.cpp
+c:\users\nikita gusev\desktop\pointlist\pointlist\ptlist.cpp(88): warning C4715: 'PointList::getCursor': not all control paths return a value
+  PointList.vcxproj -> C:\Users\Nikita Gusev\Desktop\PointList\Debug\PointList.exe
+  PointList.vcxproj -> C:\Users\Nikita Gusev\Desktop\PointList\Debug\PointList.pdb (Full PDB)
