@@ -1,4 +1,6 @@
 #include "ptlist.h"
+#include <GL/glew.h>
+#include <GL/glut.h>
 
 PointList::PointList()
 {
@@ -89,15 +91,19 @@ Point PointList::getCursor() const
 
 void PointList::showStructure()
 {
-	if (!isEmpty())
-	{
-		for (int i = 0; i < size; i++)
-		{
-			std::cout << "(" << points[i].x << "," << points[i].y << ")" << std::endl;
-		}
-	}
-	else
-	{
-		std::cout <<"Empty list"<<std::endl;
-	}
+			if (!isEmpty())
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					std::cout << "Point 1: ";
+					std::cin >> points[i].x;
+					std::cout << "Point 1: ";
+					std::cin >> points[i].y;
+				}
+			}
+			else
+			{
+				std::cout << "Empty list" << std::endl;
+			}
+
 }

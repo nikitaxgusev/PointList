@@ -1,12 +1,10 @@
 #pragma once
 #include <iostream>
 
-const int maxListSize = 10;
+const int maxListSize = 9;
 
 class Point
 {
-private:
-	
 public:
 	float x;
 	float y;
@@ -20,12 +18,14 @@ public:
 
 class PointList
 {
-private:
+//private:
+public:
 	//Data members
+	
+public:
 	int size;
 	int cursor;
 	Point points[maxListSize];
-public:
 	PointList();
 	//List Manipalution operations 
 	void append(Point newPoint);

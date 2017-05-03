@@ -1,34 +1,42 @@
 #include <iostream>
 #include "ptlist.h"
+#include <GL/glew.h>
+#include <GL/glut.h>
 
-
-int main()
-{
-	PointList polygon;
-	Point vertex;
-
-	//Read in the polygon's vertices
-
-	std::cout << "Enter the polygon's vertices (end with eof): ";
-	while (!polygon.isFull())
+Point points[maxListSize];
+void showStructure();
+int main(int argc,char** argv)
+{	
+	for (int i = 0; i < 4; i++)
 	{
-		std::cin >> vertex.x >> vertex.y;
-		polygon.append(vertex);
+		std::cout << "Point x [ "<<i+1<<" ]: ";
+		std::cin >> points[i].x;
+		std::cout << "Point y [ " << i + 1 << " ]: ";
+		std::cin >> points[i].y;
 	}
-	//Output the vertices one per line 
+	
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE |  GLUT_DEPTH);
+	glutInitWindowSize(400, 400);
+	glutCreateWindow("PointList");
+	glutDisplayFunc(showStructure);
 
-	polygon.showStructure();
-	/*if(!polygon.isEmpty())
-	{
-		polygon.gotoBeginning(); //Go to beginning
-		do
-		{
-			vertex = polygon.getCursor();
-			std::cout << "(" << vertex.x << "." << vertex.y << ")" << std::endl;
-		} while (polygon.gotoNext()); //Go to next point
-	}*/
-
+	glutMainLoop();
 	system("pause");
 
 	return 0;
+}
+
+void showStructure()
+{
+	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+	glBegin(GL_POLYGON);
+
+		glVertex2f(GLfloat(points[1].x), GLfloat(points[2].y));
+		glVertex2f(GLfloat(points[3].y), GLfloat(points[4].x)); 
+		glVertex2f(GLfloat(points[5].y), GLfloat(points[6].x));
+		glVertex2f(GLfloat(points[7].y), GLfloat(points[8].x));
+		
+	glEnd();
+	glutSwapBuffers();
 }
